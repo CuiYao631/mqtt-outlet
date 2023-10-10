@@ -11,7 +11,7 @@
 #include <ESP8266WebServer.h>
 #include <WiFiManager.h> 
 
-
+WiFiManager wifiManager;
 //gets called when WiFiManager enters configuration mode
 void configModeCallback (WiFiManager *myWiFiManager) {
   Serial.println("Entered config mode");
@@ -21,15 +21,12 @@ void configModeCallback (WiFiManager *myWiFiManager) {
 }
 //清除WIFI
 void wifi_reset(){
-  WiFiManager wifiManager;
   wifiManager.resetSettings();
   ESP.reset();
 }
 
 //连接WIFI
 void wifi_connect() {
-  WiFiManager wifiManager;
-  
   //wifiManager.setConnectTimeout(180);
 
   //wifiManager.setTimeout(180);
