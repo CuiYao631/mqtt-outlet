@@ -18,7 +18,7 @@
 const char* ssid = "XC";//WiFi名称
 const char* password = "Cui123456";//WiFi密码
 
-const char* mqttServer = "192.168.1.106";//服务器地址
+const char* mqttServer = "192.168.100.191";//服务器地址
 const int mqttPort = 1883;//服务器端口
 const int duration = 5000;//Button长按触发时间
 
@@ -44,8 +44,8 @@ void setup() {
   ticker.attach(0.1, buttonRead);
   
   //初始化wifi
-  //wifi_connect();
-  connectWifi();
+  wifi_connect();
+  //connectWifi();
 
   //定义按键单按事件回调
   button.onPressed(onPressed);
@@ -56,6 +56,7 @@ void setup() {
   connectMQTTServer();                       // 连接MQTT服务器
   mqttClient.setCallback(callback);          // 设置回调函数
   Serial.println("Initialization completed (^_^) ");
+  digitalWrite(LED_PIN, HIGH);//默认为关闭
 }
 
 // ESP8266连接wifi(临时)

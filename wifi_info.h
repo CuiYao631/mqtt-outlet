@@ -5,7 +5,7 @@
  * @Last Modified time: 2022-11-02 10:37:44 
  */
 
-#include <ESP8266WiFi.h>
+
 #include <ESP8266HTTPClient.h> 
 #include <DNSServer.h>
 #include <ESP8266WebServer.h>
@@ -30,9 +30,9 @@ void wifi_reset(){
 void wifi_connect() {
   WiFiManager wifiManager;
   
-  wifiManager.setConnectTimeout(180);
+  //wifiManager.setConnectTimeout(180);
 
-  wifiManager.setTimeout(180);
+  //wifiManager.setTimeout(180);
 
   wifiManager.setAPCallback(configModeCallback);
   if (!wifiManager.autoConnect()) {
